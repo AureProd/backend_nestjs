@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: mysql:${MYSQL_VERSION}
+    image: mysql:8
     container_name: ${PROJECT_NAME}-mysql
     environment:
       MYSQL_DATABASE: ${DB_NAME}
@@ -13,7 +13,7 @@ services:
       - "${MYSQL_PORT}:3306"
 
   pma:
-    image: phpmyadmin/phpmyadmin:${PHPMYADMIN_VERSION}
+    image: phpmyadmin/phpmyadmin:5
     container_name: ${PROJECT_NAME}-phpmyadmin
     environment:
       PMA_HOST: db
