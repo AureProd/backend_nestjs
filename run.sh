@@ -40,7 +40,7 @@ stop_instance() {
     docker-compose --project-name api-$PROJECT_NAME -f $PROJECT_PATH/docker-compose.yml --env-file $PROJECT_PATH/.env down
 }
 
-if [ "$(docker ps -q -f name=frontend-$PROJECT_NAME)" ] || [ "$(docker ps -q -f name=backend-$PROJECT_NAME)" ] || [ "$(docker ps -q -f name=influxdb-$PROJECT_NAME)" ] || [ "$(docker ps -q -f name=mysql-$PROJECT_NAME)" ]; then
+if [ "$(docker ps -q -f name=$PROJECT_NAME-backend)" ]; then
     echo -e "${YELLOW}The Connect instance '$PROJECT_NAME' is already started${RESET}"
     
     echo -e "${YELLOW}Do you want to stop or restart the project (stop/restart)${RESET}"
